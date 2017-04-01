@@ -30,7 +30,8 @@ namespace ResponseFormattingSample
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc()
-                .AddXmlSerializerFormatters();
+		        .AddXmlSerializerFormatters()
+		        .AddFormatterMappings(mappings => mappings.SetMediaTypeMappingForFormat("xml", "application/xml"));
 
             services.AddScoped<IAuthorRepository, AuthorRepository>();
         }
