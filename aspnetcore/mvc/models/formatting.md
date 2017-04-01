@@ -116,6 +116,8 @@ Alternately, you can add just the output formatter:
 services.AddMvc(options =>
 {
   options.OutputFormatters.Add(new XmlSerializerOutputFormatter());
+  // to support xml format filter
+  options.FormatterMappings.SetMediaTypeMappingForFormat("xml", "application/xml");
 });
 ```
 
@@ -125,6 +127,8 @@ These two approaches will serialize results using `System.Xml.Serialization.XmlS
 services.AddMvc(options =>
 {
   options.OutputFormatters.Add(new XmlDataContractSerializerOutputFormatter());
+  // to support xml format filter
+  options.FormatterMappings.SetMediaTypeMappingForFormat("xml", "application/xml");
 });
 ```
 
